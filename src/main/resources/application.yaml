@@ -3,9 +3,9 @@ spring:
     name: hakura-restaurant
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL:postgresql://neondb_owner:npg_Fc7I0TLybpmv@ep-red-math-aoxiyd2x.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require}
-    username: ${SPRING_DATASOURE_USERNAME:admin}
-    password: ${SPRING_DATASOURCE_PASSWORD:admin}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
