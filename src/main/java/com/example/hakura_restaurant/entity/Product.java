@@ -1,6 +1,7 @@
 package com.example.hakura_restaurant.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -24,7 +25,6 @@ public class Product {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    // Dùng BigDecimal cho tiền tệ để không bị sai số thập phân
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal price;
 

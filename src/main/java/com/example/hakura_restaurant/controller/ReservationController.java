@@ -1,6 +1,7 @@
 package com.example.hakura_restaurant.controller;
 
 import com.example.hakura_restaurant.dto.BaseResponse;
+import com.example.hakura_restaurant.dto.CreateReservationRequest;
 import com.example.hakura_restaurant.dto.ReservationsResponse;
 import com.example.hakura_restaurant.dto.UpdateReservationRequest;
 import com.example.hakura_restaurant.entity.Reservation;
@@ -21,10 +22,15 @@ public class ReservationController {
         return ResponseBuilder.success(reservationService.getAllReservations());
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
+    public BaseResponse<Reservation> createReservation(@RequestBody CreateReservationRequest request) {
+        return ResponseBuilder.success(reservationService.createReservation(request));
+    }
+
+    @PutMapping("/{id}")
     public BaseResponse<String> updateReservation(@PathVariable Long id, @RequestBody UpdateReservationRequest request) {
         Long execute = reservationService.updateReservation(id, request);
-        return ResponseBuilder.success("Update reservation successfully" + execute);
+        return ResponseBuilder.success("Update reservation successfully: " + execute);
     }
 
     @DeleteMapping("/{id}")

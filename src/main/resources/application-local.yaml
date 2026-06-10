@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hakura-restaurant
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hakura_restaurant
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+api:
+  key: hakura-secret-key-2024

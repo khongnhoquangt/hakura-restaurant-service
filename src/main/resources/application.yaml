@@ -3,12 +3,15 @@ spring:
     name: hakura-restaurant
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/hakura_restaurant
-    username: admin
-    password: admin
+    url: ${SPRING_DATASOURCE_URL:postgresql://neondb_owner:npg_Fc7I0TLybpmv@ep-red-math-aoxiyd2x.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require}
+    username: ${SPRING_DATASOURE_USERNAME:admin}
+    password: ${SPRING_DATASOURCE_PASSWORD:admin}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+api:
+  key: hakura-secret-key-2024

@@ -1,11 +1,11 @@
 package com.example.hakura_restaurant.service;
 
+import com.example.hakura_restaurant.dto.CreateReservationRequest;
 import com.example.hakura_restaurant.dto.ReservationsResponse;
 import com.example.hakura_restaurant.dto.UpdateReservationRequest;
 import com.example.hakura_restaurant.entity.Reservation;
 import com.example.hakura_restaurant.repository.ReservationRepository;
 import jakarta.persistence.EntityNotFoundException;
-import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +21,18 @@ public class ReservationService {
     public ReservationsResponse getAllReservations() {
         List<Reservation> reservationList = reservationRepository.findAll();
         return ReservationsResponse.builder().items(reservationList).build();
+    }
+
+    public Reservation createReservation(CreateReservationRequest request) {
+        Reservation reservation = new Reservation();
+        reservation.setName(request.getName());
+        reservation.setNote(request.getNote());
+        reservation.setPhone(request.getPhone());
+        reservation.setStatus(request.getStatus());
+        reservation.setNumberOfPeople(request.getNumberOfPeople());
+        reservation.setTime(request.getTime());
+        
+        return reservationRepository.save(reservation);
     }
 
     public Long updateReservation(Long id, UpdateReservationRequest request) {
