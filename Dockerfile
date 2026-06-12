@@ -1,4 +1,4 @@
-FROM maven:4.0.0 AS build
+FROM maven:4.0.0-rc-5-eclipse-temurin-21-noble AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
